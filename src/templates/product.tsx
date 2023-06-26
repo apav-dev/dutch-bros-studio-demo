@@ -10,7 +10,6 @@ import ItemsGrid from "../components/ItemsGrid";
 import Label from "../components/Label";
 import PageLayout from "../components/PageLayout";
 import Paragraph from "../components/Paragraph";
-import Policy from "../components/Policy";
 import ProductImage from "../components/ProductImage";
 import ProductTable from "../components/ProductTable";
 import Reviews from "../components/Reviews";
@@ -22,15 +21,7 @@ export const config: TemplateConfig = {
     $id: "skis",
     localization: { locales: ["en"], primary: false },
     filter: { entityTypes: ["ce_product"] },
-    fields: [
-      "c_returnPolicy",
-      "c_shippingPolicy",
-      "photoGallery",
-      "name",
-      "c_price",
-      "description",
-      "slug",
-    ],
+    fields: ["photoGallery", "name", "c_price", "description", "slug"],
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
@@ -67,16 +58,6 @@ export default function Product({ document }: TemplateProps) {
             />
           </VStack>
           <BigButton title={`Buy Now`} href="#" />
-        </GridContainer>
-        <GridContainer>
-          <Policy
-            name={`${document.c_returnPolicy.name}`}
-            description={`${document.c_returnPolicy.description}`}
-          />
-          <Policy
-            name={`${document.c_shippingPolicy.name}`}
-            description={`${document.c_shippingPolicy.description}`}
-          />
         </GridContainer>
         <ItemsGrid title="Similar Items">
           <Item
