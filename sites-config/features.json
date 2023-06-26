@@ -12,23 +12,25 @@
   "streams": [
     {
       "$id": "skis",
-      "filter": {
-        "entityTypes": [
-          "ce_product"
-        ]
-      },
       "localization": {
         "locales": [
           "en"
         ],
         "primary": false
       },
+      "filter": {
+        "entityTypes": [
+          "ce_product"
+        ]
+      },
       "fields": [
         "name",
         "c_price",
         "description",
         "photoGallery",
-        "slug"
+        "slug",
+        "c_shippingPolicy",
+        "c_returnPolicy"
       ]
     }
   ]
