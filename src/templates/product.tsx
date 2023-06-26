@@ -25,15 +25,7 @@ export const config: TemplateConfig = {
     $id: "skis",
     localization: { locales: ["en"], primary: false },
     filter: { entityTypes: ["ce_product"] },
-    fields: [
-      "name",
-      "c_price",
-      "description",
-      "photoGallery",
-      "slug",
-      "c_shippingPolicy",
-      "c_returnPolicy",
-    ],
+    fields: ["name", "c_price", "description", "photoGallery", "slug"],
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
@@ -70,9 +62,6 @@ export default function Product({ document }: TemplateProps) {
             alt="a pair of skis"
           />
           <BigButton title={`Buy Now`} href="#" />
-        </GridContainer>
-        <GridContainer>
-          <Policy name="Policy Name" description="Policy Description" />
         </GridContainer>
         <ItemsGrid title="Similar Items">
           <Item

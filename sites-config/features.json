@@ -28,9 +28,7 @@
         "c_price",
         "description",
         "photoGallery",
-        "slug",
-        "c_shippingPolicy",
-        "c_returnPolicy"
+        "slug"
       ]
     }
   ]
