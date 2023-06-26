@@ -24,11 +24,13 @@
         ]
       },
       "fields": [
+        "photoGallery",
         "name",
         "c_price",
         "description",
-        "photoGallery",
-        "slug"
+        "slug",
+        "c_shippingPolicy",
+        "c_returnPolicy"
       ]
     }
   ]

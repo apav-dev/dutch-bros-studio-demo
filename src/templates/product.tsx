@@ -1,16 +1,13 @@
 import { GetPath, TemplateConfig, TemplateProps } from "@yext/pages";
+import BigButton from "../components/BigButton";
+import CenteredContainer from "../components/CenteredContainer";
 import GridContainer from "../components/GridContainer";
-import "../index.css";
-
+import HStack from "../components/HStack";
 import HeaderSimple from "../components/HeaderSimple";
 import Headline from "../components/Headline";
-import HStack from "../components/HStack";
 import Item from "../components/Item";
 import ItemsGrid from "../components/ItemsGrid";
 import Label from "../components/Label";
-
-import BigButton from "../components/BigButton";
-import CenteredContainer from "../components/CenteredContainer";
 import PageLayout from "../components/PageLayout";
 import Paragraph from "../components/Paragraph";
 import Policy from "../components/Policy";
@@ -25,7 +22,15 @@ export const config: TemplateConfig = {
     $id: "skis",
     localization: { locales: ["en"], primary: false },
     filter: { entityTypes: ["ce_product"] },
-    fields: ["name", "c_price", "description", "photoGallery", "slug"],
+    fields: [
+      "c_returnPolicy",
+      "c_shippingPolicy",
+      "photoGallery",
+      "name",
+      "c_price",
+      "description",
+      "slug",
+    ],
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
@@ -41,6 +46,10 @@ export default function Product({ document }: TemplateProps) {
       />
       <CenteredContainer>
         <GridContainer>
+          <ProductImage
+            src={`${document.photoGallery[0].image.url}`}
+            alt="a pair of skis"
+          />
           <VStack>
             <Headline
               value={`${document.name}`}
@@ -57,11 +66,17 @@ export default function Product({ document }: TemplateProps) {
               textSize="base"
             />
           </VStack>
-          <ProductImage
-            src={`${document.photoGallery[0].image.url}`}
-            alt="a pair of skis"
-          />
           <BigButton title={`Buy Now`} href="#" />
+        </GridContainer>
+        <GridContainer>
+          <Policy
+            name={`${document.c_returnPolicy.name}`}
+            description={`${document.c_returnPolicy.description}`}
+          />
+          <Policy
+            name={`${document.c_shippingPolicy.name}`}
+            description={`${document.c_shippingPolicy.description}`}
+          />
         </GridContainer>
         <ItemsGrid title="Similar Items">
           <Item
